@@ -2,6 +2,8 @@ const fs = require('fs');
 const http = require('https');
 const csv = require('node-csv').createParser();
 
+const transformer = require('./transformer');
+
 async function main() {
   const input = process.argv[2];
   let isRequest = false;
@@ -47,10 +49,6 @@ function makeRequest(input) {
         });
       });
   })
-}
-
-function transformer(value) {
-  return value.toUpperCase();
 }
 
 main();
